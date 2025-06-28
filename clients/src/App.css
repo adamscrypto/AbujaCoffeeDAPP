@@ -5,9 +5,12 @@
   text-align: center;
 }
 
-body{
-  background-color: rgba(93, 95, 184, 0.425)
-
+body {
+  background: #000 url('./components/image/bg.png') no-repeat center center/cover ;
+  height: 100vh;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  opacity: 0.9;
 }
 .header {
   overflow: hidden;

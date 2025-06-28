@@ -4,7 +4,7 @@ import { ethers } from 'ethers'
 import abi from "./contractabi/abi.json"
 import Buy from "./components/Buy.jsx"
 import Memo from "./components/Memo.jsx"
-import logo from "./components/logo.png"
+import Header from "./components/Header.jsx"
 
 
 
@@ -32,16 +32,13 @@ if(window.ethereum){
      
       try {
             const account = window.ethereum.request({ method: 'eth_requestAccounts' })
-            // window.location.reload()
             const provider = new ethers.BrowserProvider(window.ethereum);
-            const signer = await provider.getSigner()
-            // console.log(provider.isConnected())
+            const signer = await provider.getSigner;
             window.ethereum.on("accountsChanged", ()=>window.location.reload())
             const contract = new ethers.Contract(contractAddress, contractABI, signer)
 
             setData({provider, signer, contract})
             setAccount(account)
-            // setAccount(account[0])
             
       } catch (error) {
         console.log(error)
@@ -57,7 +54,8 @@ if(window.ethereum){
 
   return (
     <>
-        <div className="header">
+    <Header />
+        {/* <div className="header">
       <a href="#default" className="logo">
         <img src={logo} alt="" srcSet="" />
       </a>
@@ -66,7 +64,7 @@ if(window.ethereum){
         <a href="#contact">Contact</a>
         <a href="#about">About</a>
       </div>
-    </div>
+    </div> */}
       <div>Connected Account: {account} </div>
       <Buy data = {data}/>
        <Memo data = {data}/>
