@@ -19,6 +19,7 @@ function App() {
   })
 
   const [account, setAccount] = useState("Not Connected")
+  const [isConnected, setIsConnected] = useState(false)
 
   useEffect(()=>{
 
@@ -33,12 +34,13 @@ if(window.ethereum){
       try {
             const account = window.ethereum.request({ method: 'eth_requestAccounts' })
             const provider = new ethers.BrowserProvider(window.ethereum);
-            const signer = await provider.getSigner;
+            const signer = await provider.getSigner();
             window.ethereum.on("accountsChanged", ()=>window.location.reload())
             const contract = new ethers.Contract(contractAddress, contractABI, signer)
 
             setData({provider, signer, contract})
             setAccount(account)
+            setIsConnected(true)
             
       } catch (error) {
         console.log(error)
@@ -67,7 +69,7 @@ if(window.ethereum){
     </div> */}
       <div>Connected Account: {account} </div>
       <Buy data = {data}/>
-       <Memo data = {data}/>
+       <Memo data = {data} isConnected={isConnected}/>
       
        
        

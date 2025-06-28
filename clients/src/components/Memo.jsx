@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import "./Memo.css";
 
 
-const Memo = ({data})=> {
+const Memo = ({data, isConnected})=> {
     const [memo, setMemo] = useState([])
     const {contract} = data
 
@@ -19,7 +19,7 @@ const Memo = ({data})=> {
         // console.log(memo)
     }, [contract])
 
-    return (
+    return isConnected ? (
     <div className="table-container">
       <table className="custom-table">
         <thead>
@@ -36,18 +36,15 @@ const Memo = ({data})=> {
             <tr key={index}>
               <td>{row.name}</td>
               <td>{row.message}</td>
-              <td className="address-cell">{row.from}
-                <a href="http://"></a>
-              </td>
+              <td className="address-cell"> <a href="http://google.com"> {row.from}</a>  </td>
               <td>{row.timestamp}</td>
-            
-
             </tr>
           ))}
         </tbody>
       </table>
     </div>
-  );
+  ):
+  (<h1></h1>)
 }
 
 export default Memo
