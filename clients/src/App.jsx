@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
+// import { Route } from 'react-router-dom'
 import './App.css'
 import { ethers } from 'ethers'
 import abi from "./contractabi/abi.json"
 import Buy from "./components/Buy.jsx"
 import Memo from "./components/Memo.jsx"
-import logo from "./components/logo.png"
+import Header from "./components/Header.jsx"
 
 
 
@@ -13,12 +14,13 @@ function App() {
   
   //useState to manage the variables
   const [data, setData] = useState({
-    provider:null,
+    provider:null,  
     signer:null,
     contract:null
   })
 
   const [account, setAccount] = useState("Not Connected")
+  const [isConnected, setIsConnected] = useState(false)
 
   useEffect(()=>{
 
@@ -32,16 +34,14 @@ if(window.ethereum){
      
       try {
             const account = window.ethereum.request({ method: 'eth_requestAccounts' })
-            // window.location.reload()
             const provider = new ethers.BrowserProvider(window.ethereum);
-            const signer = await provider.getSigner()
-            // console.log(provider.isConnected())
+            const signer = await provider.getSigner();
             window.ethereum.on("accountsChanged", ()=>window.location.reload())
             const contract = new ethers.Contract(contractAddress, contractABI, signer)
 
             setData({provider, signer, contract})
             setAccount(account)
-            // setAccount(account[0])
+            setIsConnected(true)
             
       } catch (error) {
         console.log(error)
@@ -57,7 +57,8 @@ if(window.ethereum){
 
   return (
     <>
-        <div className="header">
+    <Header />
+        {/* <div className="header">
       <a href="#default" className="logo">
         <img src={logo} alt="" srcSet="" />
       </a>
@@ -66,10 +67,10 @@ if(window.ethereum){
         <a href="#contact">Contact</a>
         <a href="#about">About</a>
       </div>
-    </div>
-      <div>Connected Account: {account} </div>
-      <Buy data = {data}/>
-       <Memo data = {data}/>
+    </div> */}
+      
+      <Buy data = {data} account={account}/>
+       <Memo data = {data} isConnected={isConnected}/>
       
        
        

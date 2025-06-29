@@ -41,7 +41,7 @@ Clone the repository:
 
 ```bash
 git clone https://github.com/adamscrypto/AbujaCoffeeDAPP.git
-cd abuja-coffee-dapp
+
 ```
 
 Install dependencies:
