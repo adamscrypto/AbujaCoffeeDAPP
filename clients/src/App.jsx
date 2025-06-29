@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Route } from 'react-router-dom'
 import './App.css'
 import { ethers } from 'ethers'
 import abi from "./contractabi/abi.json"
@@ -67,7 +68,7 @@ if(window.ethereum){
         <a href="#about">About</a>
       </div>
     </div> */}
-      <div>Connected Account: {account} </div>
+      <div className='text-10xl font-bold underline'>Connected Account: {account} </div>
       <Buy data = {data}/>
        <Memo data = {data} isConnected={isConnected}/>
       
