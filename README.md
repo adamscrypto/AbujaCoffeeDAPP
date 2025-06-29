@@ -40,8 +40,8 @@ It’s built for my developer portfolio to demonstrate practical blockchain skil
 Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/abuja-coffee-dapp.git
-cd abuja-coffee-dapp
+git clone https://github.com/adamscrypto/AbujaCoffeeDAPP.git
+
 ```
 
 Install dependencies:
