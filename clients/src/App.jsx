@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Route } from 'react-router-dom'
+// import { Route } from 'react-router-dom'
 import './App.css'
 import { ethers } from 'ethers'
 import abi from "./contractabi/abi.json"
@@ -14,7 +14,7 @@ function App() {
   
   //useState to manage the variables
   const [data, setData] = useState({
-    provider:null,
+    provider:null,  
     signer:null,
     contract:null
   })
@@ -68,8 +68,8 @@ if(window.ethereum){
         <a href="#about">About</a>
       </div>
     </div> */}
-      <div className='text-10xl font-bold underline'>Connected Account: {account} </div>
-      <Buy data = {data}/>
+      
+      <Buy data = {data} account={account}/>
        <Memo data = {data} isConnected={isConnected}/>
       
        

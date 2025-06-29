@@ -20,7 +20,7 @@ const Memo = ({data, isConnected})=> {
     }, [contract])
 
     return isConnected ? (
-    <div className="table-container">
+    <div style={{marginTop:'120px'}} className="table-container">
       <table className="custom-table">
         <thead>
           <tr>

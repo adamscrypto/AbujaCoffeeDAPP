@@ -2,7 +2,7 @@ import { ethers } from 'ethers'
 import { useRef} from 'react'
 import "./Buy.css";
 
-function Buy({data}) {
+function Buy({data,account}) {
 
   const nameRef = useRef(null);
   const messageRef = useRef(null);
@@ -32,8 +32,11 @@ function Buy({data}) {
 
 return(
    <>
-
+   <div style={{border:'1px solid ', borderRadius:'20px', marginTop:'50px'}}>
+  <p className='text-10xl font-bold underline'>Connected Account:  {account} </p>
+  </div>
    <div className="form-card">
+    
       <form onSubmit={buyCoffee}>
         <div className="form-group">
           <label>Name:</label>
