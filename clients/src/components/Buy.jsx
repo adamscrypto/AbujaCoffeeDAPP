@@ -33,7 +33,7 @@ function Buy({data,account}) {
 return(
    <>
    <div style={{border:'1px solid ', borderRadius:'20px', marginTop:'50px'}}>
-  <p className='text-10xl font-bold underline'>Connected Account:  {account} </p>
+  <p className='text-10xl font-bold'>Connected Account:  {account} </p>
   </div>
    <div className="form-card">
     

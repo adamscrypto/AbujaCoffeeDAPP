@@ -2,13 +2,14 @@
   width: 100%;
   overflow-x: auto;
   border: 1px solid #ccc;
-  margin: 20px 0;
+  /* margin: 20px 0; */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color:#4B2E2B;
   border-radius: 20px;
   padding: 50px;
   color: #ccc;
-  
+  margin-right: 20px;
+ 
 }
 
 .custom-table {
