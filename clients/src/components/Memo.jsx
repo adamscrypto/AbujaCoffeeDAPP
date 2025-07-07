@@ -1,26 +1,38 @@
 
 import { useState, useEffect } from "react";
 import "./Memo.css";
+import SearchPreviousCustomer from "./SearchPreviousCustomer";
+// import AddressSelector from "./AddressSelector";
 
 
 const Memo = ({data, isConnected})=> {
-    const [memo, setMemo] = useState([])
+
+    const [allMemos, setAllMemos] = useState([])
+    const [query, setQuery] = useState('')
     const {contract} = data
 
     useEffect(()=> {
         const memoMessage = async () => {
 
-            let memos = await contract.getAllCustomersDetails()
-            const sorted = [...memos].sort((a,b)=> b.timestamp.toLocaleString() - a.timestamp.toLocaleString());
-           setMemo(sorted);
-           
+          let memos = await contract.getAllCustomersDetails()
+          const sorted = [...memos].sort((a,b)=> b.timestamp.toLocaleString() - a.timestamp.toLocaleString());
+          setAllMemos(sorted);  
         }
-        contract && memoMessage()
-        // console.log(memo)
-    }, [contract])
 
-    return isConnected ? (
+        contract && memoMessage()
+    }, [contract])
+ 
+ // Filtered list
+    const filteredMemos = allMemos.filter(memo =>
+    memo.name.toLowerCase().includes(query.toLowerCase()) ||
+    memo.message.toLowerCase().includes(query.toLowerCase()) ||
+    memo.from.toLowerCase().includes(query.toLowerCase())
+  );
+    return isConnected && (
+      <>
     <div style={{marginTop:'120px'}} className="table-container">
+      {/* <AddressSelector filterMemos = {filteredMemos} /> */}
+       <SearchPreviousCustomer query = {query} onChange={setQuery} placeholder='Search Previous Transaction...'  />
       <table className="custom-table">
         <thead>
           <tr>
@@ -32,19 +44,22 @@ const Memo = ({data, isConnected})=> {
           </tr>
         </thead>
         <tbody>
-          {memo.map((row, index) => (
+          {filteredMemos.map((row, index) => (
             <tr key={index}>
               <td>{row.name}</td>
               <td>{row.message}</td>
-              <td className="address-cell"> <a href="http://google.com"> {row.from}</a>  </td>
+             
+              <td className="address-cell"><a href="sepolia.etherscan.io/"> {row.from}</a> </td>
+             
               <td>{row.timestamp}</td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
-  ):
-  (<h1></h1>)
+    </>
+  )
+  
 }
 
 export default Memo

@@ -6,6 +6,7 @@ import abi from "./contractabi/abi.json"
 import Buy from "./components/Buy.jsx"
 import Memo from "./components/Memo.jsx"
 import Header from "./components/Header.jsx"
+// import SearchPreviousCustomer from './components/SearchPreviousCustomer.jsx'
 
 
 
@@ -21,6 +22,7 @@ function App() {
 
   const [account, setAccount] = useState("Not Connected")
   const [isConnected, setIsConnected] = useState(false)
+  // const [query, setQuery] = useState('')
 
   useEffect(()=>{
 
@@ -57,23 +59,11 @@ if(window.ethereum){
 
   return (
     <>
+
     <Header />
-        {/* <div className="header">
-      <a href="#default" className="logo">
-        <img src={logo} alt="" srcSet="" />
-      </a>
-      <div className="header-right">
-        <a className="active" href="#home">Home</a>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
-      </div>
-    </div> */}
-      
-      <Buy data = {data} account={account}/>
-       <Memo data = {data} isConnected={isConnected}/>
-      
-       
-       
+    <Buy data = {data} account={account}/>
+    <Memo data = {data} isConnected={isConnected}/>
+         
     </>
   )
 }
