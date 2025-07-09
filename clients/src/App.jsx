@@ -10,6 +10,7 @@ import Header from "./components/Header.jsx"
 
 
 
+
 function App() {
 
   
@@ -63,6 +64,7 @@ if(window.ethereum){
     <Header />
     <Buy data = {data} account={account}/>
     <Memo data = {data} isConnected={isConnected}/>
+    
          
     </>
   )

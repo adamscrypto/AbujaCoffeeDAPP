@@ -1,6 +1,9 @@
 import { ethers } from 'ethers'
 import { useRef} from 'react'
 import "./Buy.css";
+import ConnectedAccount from './ConnectedAccount'
+
+
 
 function Buy({data,account}) {
 
@@ -32,8 +35,9 @@ function Buy({data,account}) {
 
 return(
    <>
+   <ConnectedAccount  account={account}/>
+   {/* <p className='text-10xl font-bold'>Connected Account:  {account} </p> */}
    <div style={{border:'1px solid ', borderRadius:'20px', marginTop:'50px'}}>
-  <p className='text-10xl font-bold'>Connected Account:  {account} </p>
   </div>
    <div className="form-card">
     
