@@ -6,7 +6,7 @@ import abi from "./contractabi/abi.json"
 import Buy from "./components/Buy.jsx"
 import Memo from "./components/Memo.jsx"
 import Header from "./components/Header.jsx"
-// import SearchPreviousCustomer from './components/SearchPreviousCustomer.jsx'
+
 
 
 

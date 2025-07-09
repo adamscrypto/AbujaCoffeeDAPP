@@ -56,6 +56,35 @@ body {
   float: right;
 }
 
+/* .cards{
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  border: 1px solid red;
+}
+
+.card{
+  margin-top: 20px;
+  cursor:pointer;
+  background-color: magenta;
+  height: 300px;
+  perspective: 1000px;
+  border-radius: 5px;
+  transform: rotateY('180');
+}
+
+.card h1{
+  font-size: 25px;
+  border-bottom: 1px #fff solid;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+.card img{
+  width: 50%;
+  height: 200px;
+  object-fit: cover;
+} */
 /* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
 @media screen and (max-width: 500px) {
   .header a {

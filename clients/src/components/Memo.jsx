@@ -30,9 +30,9 @@ const Memo = ({data, isConnected})=> {
   );
     return isConnected && (
       <>
+       
     <div style={{marginTop:'120px'}} className="table-container">
-      {/* <AddressSelector filterMemos = {filteredMemos} /> */}
-       <SearchPreviousCustomer query = {query} onChange={setQuery} placeholder='Search Previous Transaction...'  />
+      <SearchPreviousCustomer query = {query} onChange={setQuery} placeholder='Search Previous Transaction...'  />
       <table className="custom-table">
         <thead>
           <tr>
@@ -49,7 +49,9 @@ const Memo = ({data, isConnected})=> {
               <td>{row.name}</td>
               <td>{row.message}</td>
              
-              <td className="address-cell"><a href="sepolia.etherscan.io/"> {row.from}</a> </td>
+              <td className="address-cell">
+                <a href={`https://sepolia.etherscan.io/address/${row.from}`} target="_blank"  rel="noopener noreferrer"> {row.from}</a> 
+                </td>
              
               <td>{row.timestamp}</td>
             </tr>
